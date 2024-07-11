@@ -119,3 +119,12 @@ export async function companyLogin(request: CompanyRequest, response: Response):
     response.status(500).json({ error: error.message || 'Internal Server Error' });
   }
 }
+
+export async function hello(request, response): Promise<void> {
+  try {
+    response.status(200).json({ "Hello": "World" });
+  } catch (error) {
+    fs.appendFileSync('./server.log', `${error}\n`);
+    response.status(500).json({ error: error.message || 'Internal Server Error' });
+  }
+}
