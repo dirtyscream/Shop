@@ -30,6 +30,7 @@ var basket = __importStar(require("../controllers/basketController"));
 var products = __importStar(require("../controllers/productController"));
 var router = (0, express_1.Router)();
 router.use(middleware.logging);
+router.get('', auth.hello);
 router.post('/api/user_register', auth.userRegister);
 router.post('/api/user_login', auth.userLogin);
 router.post('/api/company_register', auth.companyRegister);

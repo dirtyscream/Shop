@@ -66,6 +66,7 @@ exports.userRegister = userRegister;
 exports.userLogin = userLogin;
 exports.companyRegister = companyRegister;
 exports.companyLogin = companyLogin;
+exports.hello = hello;
 var middleware = __importStar(require("../middleware/middleware"));
 var models = __importStar(require("../models/models"));
 var bcrypt_1 = __importDefault(require("bcrypt"));
@@ -230,6 +231,20 @@ function companyLogin(request, response) {
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
+        });
+    });
+}
+function hello(request, response) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            try {
+                response.status(200).json({ "Hello": "World" });
+            }
+            catch (error) {
+                fs.appendFileSync('./server.log', "".concat(error, "\n"));
+                response.status(500).json({ error: error.message || 'Internal Server Error' });
+            }
+            return [2 /*return*/];
         });
     });
 }
